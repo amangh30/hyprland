@@ -5,10 +5,10 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "margin-top": 10,
-    "margin-left": 15,
-    "margin-right": 15,
-    "spacing": 10,
+    "margin-top": 12,
+    "margin-left": 16,
+    "margin-right": 16,
+    "spacing": 0,
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
@@ -25,26 +25,26 @@
             "urgent": "󰀨"
         },
         "persistent-workspaces": {
-		"HDMI-A-1": [1,2,3,4,5]
-	}
+            "HDMI-A-1": [1, 2, 3, 4, 5]
+        }
     },
 
     "hyprland/window": {
         "format": "<span>{title}</span>",
-        "max-length": 30,
+        "max-length": 35,
         "separate-outputs": true,
         "rewrite": {
             "": "Desktop",
             "(.*) — Mozilla Firefox": "󰈹 $1",
             "(.*) - Visual Studio Code": "󰨞 $1",
             "(.*) - Discord": "󰙯 $1",
-            "(.*) - Kitty": " Kitty"
+            "(.*) - Kitty": "󰄛 Kitty"
         }
     },
 
     "tray": {
         "icon-size": 16,
-        "spacing": 10
+        "spacing": 12
     },
 
     "clock": {
@@ -55,15 +55,15 @@
 
     "network": {
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰖪",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰖪 Offline",
         "tooltip-format": "{ifname} via {gwaddr}",
         "max-length": 25
     },
 
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-muted": "󰝟",
+        "format-muted": "󰝟 Muted",
         "format-icons": { "default": ["", ""] },
         "on-click": "pavucontrol",
         "scroll-step": 5
