@@ -1,0 +1,84 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "margin-top": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 10,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "network", "pulseaudio", "battery", "custom/power"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰊠",
+            "urgent": "󰀨"
+        },
+        "persistent-workspaces": {
+		"HDMI-A-1": [1,2,3,4,5]
+	}
+    },
+
+    "hyprland/window": {
+        "format": "<span>{title}</span>",
+        "max-length": 30,
+        "separate-outputs": true,
+        "rewrite": {
+            "": "Desktop",
+            "(.*) — Mozilla Firefox": "󰈹 $1",
+            "(.*) - Visual Studio Code": "󰨞 $1",
+            "(.*) - Discord": "󰙯 $1",
+            "(.*) - Kitty": " Kitty"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "format-alt": "󰃭  {:%a, %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "max-length": 25
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": { "default": ["", ""] },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    }
+}

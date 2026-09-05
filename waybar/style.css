@@ -1,0 +1,136 @@
+/* Global Reset */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Roboto", "Helvetica", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* The Bar itself - Catppuccin Glassmorphic Base */
+window#waybar {
+    /* Deep dark transparent base (Mocha Crust) */
+    background: rgba(17, 17, 27, 0.35); 
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 16px; /* Matched to Hyprland's 16px rounding */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Main Container Padding */
+.modules-left, .modules-center, .modules-right {
+    padding: 4px 8px;
+}
+
+/* Individual Module Styling - Glass Pill Effect */
+#workspaces,
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#custom-power {
+    padding: 0 14px;
+    margin: 4px 6px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(.55,-0.04,.3,1.44);
+    
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Workspaces Fixes */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #a6adc8; /* Subtext */
+    background: transparent;
+    min-width: 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #1e1e2e; /* Base text on bright pill */
+    background: rgba(137, 180, 250, 0.9); /* Catppuccin Blue */
+    border: 1px solid rgba(137, 180, 250, 1.0);
+    box-shadow: 0 0 12px rgba(137, 180, 250, 0.4);
+}
+
+#workspaces button:hover {
+    background: rgba(137, 180, 250, 0.3);
+    color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    background: rgba(243, 139, 168, 0.4); /* Catppuccin Red */
+    border: 1px solid rgba(243, 139, 168, 0.5);
+}
+
+/* Color Coding & Hover Effects with Frosted Tints */
+#clock { 
+    color: #cdd6f4; 
+}
+
+#battery { 
+    color: #a6e3a1; /* Catppuccin Green */
+    background: rgba(166, 227, 161, 0.08); 
+    border-color: rgba(166, 227, 161, 0.2);
+}
+#battery.warning { 
+    color: #f9e2af; /* Catppuccin Yellow */
+    background: rgba(249, 226, 175, 0.1); 
+    border-color: rgba(249, 226, 175, 0.3);
+}
+#battery.critical { 
+    color: #f38ba8; /* Catppuccin Red */
+    background: rgba(243, 139, 168, 0.15); 
+    border-color: rgba(243, 139, 168, 0.3);
+}
+
+#network { 
+    color: #89b4fa; /* Catppuccin Blue */
+    background: rgba(137, 180, 250, 0.08); 
+    border-color: rgba(137, 180, 250, 0.2);
+}
+
+#pulseaudio { 
+    color: #cba6f7; /* Catppuccin Mauve */
+    background: rgba(203, 166, 247, 0.08);
+    border-color: rgba(203, 166, 247, 0.2);
+}
+
+#tray { 
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+#custom-power {
+    color: #f38ba8; /* Catppuccin Red */
+    background: rgba(243, 139, 168, 0.1);
+    border-color: rgba(243, 139, 168, 0.3);
+    font-size: 14px;
+}
+
+/* Unified Hover State - Brighten the glass on hover */
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#tray:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#custom-power:hover {
+    background: rgba(243, 139, 168, 0.8);
+    color: #11111b; /* Dark text for contrast */
+    box-shadow: 0 0 15px rgba(243, 139, 168, 0.5);
+}
