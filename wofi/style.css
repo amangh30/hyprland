@@ -2,11 +2,11 @@
 
 window {
     margin: 0px;
-    border: 2px solid rgba(177, 98, 134, 0.4);
-    border-radius: 12px;
-    background-color: rgba(20, 20, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Matches Waybar island borders */
+    border-radius: 16px; /* Matched to Hyprland decoration rounding */
+    background-color: rgba(30, 30, 46, 0.75); /* Deep Mocha base, allows blur to shine through */
 
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 14px;
 }
 
@@ -14,9 +14,8 @@ window {
 /* ───────────── Main container ───────────── */
 
 #outer-box {
-    margin: 10px;
+    margin: 12px;
     padding: 2px;
-
     border: none;
     background-color: transparent;
 }
@@ -25,19 +24,19 @@ window {
 /* ───────────── Search bar ───────────── */
 
 #input {
-    margin: 4px 5px 10px 5px;
-    padding: 8px 12px;
+    margin: 4px 5px 12px 5px;
+    padding: 10px 14px;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
 
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    background-color: rgba(17, 17, 27, 0.6); /* Darker Crust color for depth */
+    color: #cdd6f4;
 }
 
 #input:focus {
-    border: 1px solid rgba(177, 98, 134, 0.4);
-    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(137, 180, 250, 0.8); /* Catppuccin Blue glow on focus */
+    background-color: rgba(17, 17, 27, 0.8);
 }
 
 
@@ -52,7 +51,6 @@ window {
 #inner-box {
     margin: 0px;
     padding: 2px;
-
     border: none;
     background-color: transparent;
 }
@@ -62,33 +60,34 @@ window {
 
 #entry {
     margin: 2px 0px;
-    padding: 7px 9px;
+    padding: 8px 12px;
 
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 12px;
 
     background-color: transparent;
+    transition: all 0.2s ease;
 }
 
 #entry:hover {
-    background-color: rgba(124, 92, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle glass highlight */
 }
 
 
 /* ───────────── Selected entry ───────────── */
 
 #entry:selected {
-    border: 1px solid rgba(124, 92, 255, 0.25);
-    border-radius: 8px;
-
-    background-color: rgba(124, 92, 255, 0.4);
+    background-color: #89b4fa; /* Solid Catppuccin Blue */
+    border: 1px solid #89b4fa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.3);
 }
 
 
 /* ───────────── Icon ───────────── */
 
 #img {
-    margin-right: 8px;
+    margin-right: 12px;
 }
 
 
@@ -96,10 +95,11 @@ window {
 
 #text {
     margin: 4px;
-    color: #e0e0e0;
+    color: #cdd6f4; /* Main text color */
 }
 
+/* Force dark text on the selected blue pill for maximum readability */
 #entry:selected #text {
-    color: #e0e0e0;
+    color: #11111b; 
+    font-weight: bold;
 }
-
