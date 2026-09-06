@@ -1,0 +1,33 @@
+show=drun
+
+# Layout
+width=40%
+location=center
+layer=overlay
+hide_scroll=true
+dynamic_lines=true
+
+# Search
+matching=fuzzy
+insensitive=true
+line_wrap=word
+prompt=
+
+# Applications
+allow_images=true
+image_size=24
+display_generic=false
+
+# Terminal
+term=alacritty
+
+# Behavior
+key_expand=Tab
+use_search_box=true
+close_on_focus_loss=true
+
+# Appearance
+gtk_dark=true
+allow_markup=true
+
+
