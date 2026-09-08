@@ -48,6 +48,9 @@ hl.env("HYPRCURSOR_SIZE", 24)
 -- ### LOOK AND FEEL ###
 -- #####################
 
+-- Load Matugen Colors at the top of the file
+local colors = dofile(os.getenv("HOME") .. "/.config/hypr/colors.lua")
+
 hl.config({
     general = {
         gaps_in = 8,
@@ -57,22 +60,20 @@ hl.config({
         col = {
             active_border = {
                 colors = {
-                    "rgba(89b4facc)", -- Catppuccin Blue
-                    "rgba(cba6f7cc)", -- Catppuccin Mauve
-                    "rgba(f38ba8cc)", -- Catppuccin Red
+                    "rgba(" .. colors.primary .. "cc)", 
+                    "rgba(" .. colors.secondary .. "cc)", 
                 },
                 angle = 45,
             },
 
             inactive_border = {
                 colors = {
-                    "rgba(1e1e2e88)", -- Deep dark transparent base
-                    "rgba(11111b88)",
+                    "rgba(" .. colors.surface .. "88)", 
+                    "rgba(" .. colors.outline .. "88)",
                 },
                 angle = 45,
             },
         },
-
         resize_on_border = true, -- Much sleeker for mouse users
         allow_tearing = false,
         layout = "dwindle",
@@ -266,6 +267,8 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("cp ~/lap/hyprland.lua ~/.config/hypr
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+-- Shuffle Wallpaper and Matugen Theme
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.local/bin/awww-rotate.sh"))
 
 -- Fullscreen (Maximize / 1)
 hl.bind(

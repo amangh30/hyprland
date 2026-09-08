@@ -1,0 +1,14 @@
+[config]
+reload_apps = true
+
+[templates.hyprland]
+input_path = "/home/aman/.config/matugen/templates/colors.lua"
+output_path = "/home/aman/.config/hypr/colors.lua"
+
+[templates.waybar]
+input_path = "/home/aman/.config/matugen/templates/colors.css"
+output_path = "/home/aman/.config/waybar/colors.css"
+
+[templates.wofi]
+input_path = "/home/aman/.config/matugen/templates/colors.css"
+output_path = "/home/aman/.config/wofi/colors.css"

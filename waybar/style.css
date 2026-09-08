@@ -1,3 +1,5 @@
+@import 'colors.css';
+
 /* Global Reset */
 * {
     font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
@@ -18,8 +20,8 @@ window#waybar {
    These inherit the blur from your Hyprland layer rules
 */
 .modules-left, .modules-center, .modules-right {
-    background: rgba(30, 30, 46, 0.75); /* Deep Catppuccin Mocha Base */
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: alpha(@surface, 0.75); /* Matugen Surface Color */
+    border: 1px solid alpha(@outline, 0.15); /* Matugen Outline Color */
     border-radius: 24px;
     padding: 2px 6px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -38,7 +40,7 @@ window#waybar {
     margin: 4px 2px;
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(.55,-0.04,.3,1.44);
-    color: #cdd6f4; /* Default Text Color */
+    color: @on_surface; /* Matugen Base Text Color */
 }
 
 /* Workspaces Styling */
@@ -49,88 +51,89 @@ window#waybar {
 
 #workspaces button {
     padding: 0 8px;
-    color: #6c7086; /* Inactive subtext */
+    color: alpha(@on_surface, 0.6); /* Dimmed Matugen Text */
     min-width: 28px;
     border-radius: 14px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 #workspaces button.active {
-    color: #11111b; /* Dark text for contrast */
-    background: #89b4fa; /* Catppuccin Blue */
-    box-shadow: 0 0 10px rgba(137, 180, 250, 0.4);
+    color: @on_primary; /* Dark text for contrast */
+    background: @primary; /* Matugen Primary Color */
+    box-shadow: 0 0 10px alpha(@primary, 0.4);
 }
 
 #workspaces button:hover {
-    background: rgba(137, 180, 250, 0.2);
-    color: #89b4fa;
+    background: alpha(@primary, 0.2);
+    color: @primary;
 }
 
 #workspaces button.urgent {
-    background: #f38ba8; /* Catppuccin Red */
-    color: #11111b;
+    background: @error; /* Matugen Error Color */
+    color: @on_error;
 }
 
 /* Active Window Title */
 #window {
-    color: #a6adc8;
+    color: alpha(@on_surface, 0.8);
     margin-right: 8px;
 }
 
 /* Color Coding Modules */
+/* You can map these to different Matugen accent colors (secondary, tertiary, etc) */
 #clock {
-    color: #cba6f7; /* Mauve */
+    color: @secondary; 
     font-size: 14px;
 }
 
 #network {
-    color: #89dceb; /* Sky */
+    color: @primary; 
 }
 
 #pulseaudio {
-    color: #f5c2e7; /* Pink */
+    color: @secondary; 
 }
 
 #battery {
-    color: #a6e3a1; /* Green */
+    color: @primary; 
 }
 
 #battery.charging {
-    color: #f9e2af; /* Yellow */
+    color: @secondary; 
 }
 
 #battery.warning:not(.charging) {
-    color: #fab387; /* Peach */
-    background: rgba(250, 179, 135, 0.15);
+    color: @error; 
+    background: alpha(@error, 0.15);
 }
 
 #battery.critical:not(.charging) {
-    color: #f38ba8; /* Red */
-    background: rgba(243, 139, 168, 0.2);
+    color: @error; 
+    background: alpha(@error, 0.2);
     animation: pulse 2s infinite;
 }
 
 #custom-power {
-    color: #f38ba8;
+    color: @error;
     font-size: 15px;
     padding-right: 14px;
     padding-left: 10px;
 }
 
 #custom-power:hover {
-    background: #f38ba8;
-    color: #11111b;
-    box-shadow: 0 0 12px rgba(243, 139, 168, 0.5);
+    background: @error;
+    color: @on_error;
+    box-shadow: 0 0 12px alpha(@error, 0.5);
 }
 
 /* Hover effects for utility modules */
 #network:hover, #pulseaudio:hover, #battery:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: alpha(@on_surface, 0.08);
 }
 
 /* Critical Battery Animation */
 @keyframes pulse {
-    0% { background: rgba(243, 139, 168, 0.1); }
-    50% { background: rgba(243, 139, 168, 0.3); }
-    100% { background: rgba(243, 139, 168, 0.1); }
+    0% { background: alpha(@error, 0.1); }
+    50% { background: alpha(@error, 0.3); }
+    100% { background: alpha(@error, 0.1); }
 }
